@@ -4,18 +4,18 @@ import featuredImg from "../../../assets/home/featured.jpg";
 import "./Featured.css";
 const Featured = () => {
     return (
-    <div className='featured-item pt-8 my-20'>
+    <div className='featured-item bg-fixed pt-8 my-20'>
         
         <SectionTitle subHeading="check it out" heading={"Featured Item"}>
 
         </SectionTitle>
     
-       <div className='md flex justify-center items-center text-white pb-20 pt-12 px-36 pt-10'>
+       <div className='md flex justify-center items-center bg-slate-500 
+       bg opacity-70 text-white pb-20 pt-12 px-36 pt-10'>
            <div>
             <img src={featuredImg} alt="" />
            </div>
        
-
          <div className='md:ml-10'>
                 <p>
                 Aug 20, 2029
@@ -29,7 +29,7 @@ const Featured = () => {
                  Aliquid autem doloribus dolor impedit fuga tempora unde?
                 </p>
 
-                <button className="btn btn-active btn-primary">Order Now</button>
+                <button className="btn btn-active border-0 border-b-4 btn-primary">Order Now</button>
             </div>
         </div>
        
