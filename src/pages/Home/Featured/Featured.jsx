@@ -4,36 +4,37 @@ import featuredImg from "../../../assets/home/featured.jpg";
 import "./Featured.css";
 const Featured = () => {
     return (
-    <div className='featured-item text-white' >
+    <div className='featured-item pt-8 my-20'>
+        
         <SectionTitle subHeading="check it out" heading={"Featured Item"}>
 
         </SectionTitle>
-        
+    
+       <div className='md flex justify-center items-center text-white pb-20 pt-12 px-36 pt-10'>
+           <div>
+            <img src={featuredImg} alt="" />
+           </div>
+       
 
-       <div className='md flex justify-center items-center py-20 px-36'>
-        <img src={featuredImg} alt="" />
-       </div>
-
-        <div className='md:ml-10'>
-            <p>
+         <div className='md:ml-10'>
+                <p>
                 Aug 20, 2029
-            </p>
-            <p className='uppercase'>
+                </p>
+                <p className='uppercase'>
                 Where can I get Some?
-            </p>
-
-            <p>
+                </p>
+                <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                  Laborum totam nihil, laboriosam dolorum dolores alias perferendis provident, ut esse, nemo accusamus quos.
                  Aliquid autem doloribus dolor impedit fuga tempora unde?
-            </p>
+                </p>
 
-            <button className="btn btn-active btn-primary">Order Now</button>
-           
-  </div>
+                <button className="btn btn-active btn-primary">Order Now</button>
+            </div>
+        </div>
        
        
-       </div>
+    </div>
     );
 };
 
