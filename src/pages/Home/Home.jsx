@@ -9,9 +9,9 @@ import { Helmet } from 'react-helmet-async';
 const Home = () => {
     return (
         <div>
-             <Helmet>
-                <title> Bistro Boss | Home</title>
-            </Helmet>
+         <Helmet>
+                 <title>BISTRO BOSS | HOME</title>
+          </Helmet>
           <Banner></Banner>
           <Category></Category>
           <PopularMenu></PopularMenu>
