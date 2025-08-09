@@ -10,7 +10,7 @@ import { useParams } from 'react-router-dom';
 
 
 const Order = () => {
-
+    const categories = ['']
     const [tabIndex, setTabIndex] = useState(0);
     const [menu] = useMenu();
     const { category } = useParams();
