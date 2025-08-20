@@ -34,6 +34,11 @@ import Login from "../pages/Login/Login";
         {
             path: 'login',
             element: <Login></Login>
+        },
+
+        {
+            path: 'signup',
+            element: <SignUp></SignUp>
         }
     ]
     }
