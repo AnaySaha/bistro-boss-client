@@ -2,10 +2,12 @@ import { useContext, useRef, useState } from 'react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
+import { AuthContext } from '../../firebase/providers/AuthProviders';
 
 const Login = () => {
     const captchaRef = useRef(null);
     const [disabled, setDisabled] = useState(true);
+
 const {signIn} = useContext(AuthContext);
 
 
@@ -21,7 +23,7 @@ const {signIn} = useContext(AuthContext);
         const password = form.password.value;
         console.log(email, password);
         signIn(email, password)
-        .then(result =>{
+        .then(result => {
            const user = result.user;
            console.log(user); 
         })
