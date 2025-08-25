@@ -65,6 +65,10 @@ const SignUp = () => {
                 text-red-600">
                   Password must be 8 characters
                 </p>}
+                {errors.password?.type === 'minLength' && <p className="
+                text-red-600">
+                  Password must be 8 characters
+                </p>}
                 {errors.password?.type === 'maxLength' && <p className="
                 text-red-600">
                   Password must be less then 12 characters
