@@ -1,6 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../../firebase/providers/AuthProviders';
 const Nav = () => {
+
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+    .then(() => {})
+    .catch(error => console.log(error));
+  }
 
     const navOptions = <>
      <ul
@@ -10,9 +20,18 @@ const Nav = () => {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/menu">Our Menu</Link></li>
         <li><Link to="/order/salad">Order Food</Link></li>
-        <li><Link to="/login">Login</Link></li>
+
       
         <li><a>About</a></li>
+        {
+
+user ? <>
+<button onClick={handleLogOut} className="btn btn-active btn-ghost"> Button</button>
+</> : <>
+<li><Link to="/login">Login</Link></li>
+</>
+}
+
       </ul></>
     return (
         <div>
