@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../firebase/providers/AuthProviders';
 import { Helmet } from 'react-helmet-async';
@@ -11,6 +11,13 @@ const Login = () => {
     const [disabled, setDisabled] = useState(true);
 
     const { signIn } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+
+    const location = useLocation();
+
+
+    const from = location.state?.from?.pathname || "/";
 
 
     useEffect(() => {
@@ -46,6 +53,8 @@ const Login = () => {
                       `
                     }
                   });
+
+                  navigate(from, { replace: true });
             })
     }
 
