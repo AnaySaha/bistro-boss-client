@@ -26,7 +26,7 @@ const Nav = () => {
         {
 
 user ? <>
-<button onClick={handleLogOut} className="btn btn-active btn-ghost"> Button</button>
+<button onClick={handleLogOut} className="btn btn-active btn-ghost">LogOut</button>
 </> : <>
 <li><Link to="/login">Login</Link></li>
 </>
