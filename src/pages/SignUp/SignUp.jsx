@@ -1,23 +1,42 @@
 import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import { data, Link } from "react-router-dom";
+import { data, Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../firebase/providers/AuthProviders";
+import Swal from "sweetalert2";
 
 
 
 
 
 const SignUp = () => {
-  const { handleSubmit, register, formState: { errors } } = useForm();
+  const { handleSubmit, reset, register, formState: { errors } } = useForm();
 
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
   const onSubmit = data => {
     console.log(data);
     createUser(data.email, data.password)
       .then(result => {
         const loggeduser = result.user;
         console.log(loggeduser);
+        updateUserProfile(data.name, data.PhotoURL)
+        .then(() =>{
+          console.log('user profile info updated')
+          reset();
+
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Profile Create Successfully",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          navigate('/');
+        })
+        .catch(error => console.log(error))
       })
   }
 
