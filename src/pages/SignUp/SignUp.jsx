@@ -15,16 +15,16 @@ const SignUp = () => {
   const onSubmit = data => {
     console.log(data);
     createUser(data.email, data.password)
-    .then(result => {
-      const loggeduser = result.user;
-      console.log(loggeduser);
-    })
+      .then(result => {
+        const loggeduser = result.user;
+        console.log(loggeduser);
+      })
   }
 
 
   return (
     <>
-     <Helmet><title> BISTRO | SIGN UP</title></Helmet>
+      <Helmet><title> BISTRO | SIGN UP</title></Helmet>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
@@ -39,6 +39,14 @@ const SignUp = () => {
                 </label>
                 <input type="text" {...register("name", { required: true })} name='name' placeholder="name" className="input input-bordered" />
                 {errors.name && <span className="text-red-600">Name is required</span>}
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Photo Url</span>
+                </label>
+                <input type="text" {...register("PhotoURL", { required: true })} name='PhotoURL' 
+                placeholder="photo url" className="input input-bordered" />
+                {errors.PhotoURL && <span className="text-red-600">Photo Url is required</span>}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -89,7 +97,7 @@ const SignUp = () => {
               </div>
             </form>
             <p><small>Alread have an Account? <Link to="/Login"> Login
-                        </Link> </small></p>
+            </Link> </small></p>
           </div>
         </div>
       </div>
