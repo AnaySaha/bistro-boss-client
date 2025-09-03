@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../../firebase/providers/AuthProviders';
+import { FaShoppingCart } from "react-icons/fa";
+
 const Nav = () => {
 
   const { user, logOut } = useContext(AuthContext);
@@ -13,28 +15,17 @@ const Nav = () => {
   }
 
     const navOptions = <>
-     <ul
-        tabIndex={0}
-        className="menu menu-sm dropdown-content  rounded-box z-[1] mt-3 w-52 p-2 shadow">
+    <ul className="menu menu-horizontal px-1">
         
         <li><Link to="/">Home</Link></li>
         <li><Link to="/menu">Our Menu</Link></li>
         <li><Link to="/order/salad">Order Food</Link></li>
         <li><Link to="/secret">Secret</Link></li>
+       
 
+     </ul>
       
-        <li><a>About</a></li>
-        {
-
-user ? <>
-<span>{user?.displayName}</span>
-<button onClick={handleLogOut} className="btn btn-active btn-ghost">LogOut</button>
-</> : <>
-<li><Link to="/login">Login</Link></li>
-</>
-}
-
-      </ul></>
+      </>
     return (
         <div>
             
@@ -61,12 +52,32 @@ user ? <>
   </div>
   <div className="navbar-center">
     <a className="btn btn-ghost text-xl">BISTRO BOSS</a>
+
+
   </div>
   
   
   
 
   <div className="navbar-end">
+
+  <li to="/">
+        <button className="btn">
+        <FaShoppingCart className='mr-4' />
+          <div className="badge badge-secondary">0</div>
+</button>
+        </li>
+
+        {
+
+user ? <>
+{/* <span>{user?.displayName}</span> */}
+<button onClick={handleLogOut} className="btn btn-active btn-ghost">LogOut</button>
+</> : <>
+<li><Link to="/login">Login</Link></li>
+</>
+}
+        
     <button className="btn btn-ghost btn-circle">
       <svg
         xmlns="http://www.w3.org/2000/svg"
