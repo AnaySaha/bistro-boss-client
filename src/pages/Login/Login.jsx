@@ -18,6 +18,7 @@ const Login = () => {
 
 
     const from = location.state?.from?.pathname || "/";
+    console.log('state in the location login page', location.state)
 
 
     useEffect(() => {
@@ -107,6 +108,7 @@ const Login = () => {
                                
                             </div>
                             <div className="form-control mt-6">
+                                
                                 <input disabled={disabled} type='submit' value="Login"
                                     className="btn btn-primary" />
                             </div>
