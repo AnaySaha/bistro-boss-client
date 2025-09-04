@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../../firebase/providers/AuthProviders';
 import { FaShoppingCart } from "react-icons/fa";
+import useCart from '../../../hooks/useCart';
 
 const Nav = () => {
-
+  const [ cart ] = useCart();
   const { user, logOut } = useContext(AuthContext);
 
   const handleLogOut = () => {
@@ -64,7 +65,7 @@ const Nav = () => {
   <li to="/">
         <button className="btn">
         <FaShoppingCart className='mr-4' />
-          <div className="badge badge-secondary">0</div>
+          <div className="badge badge-secondary">{cart.length}</div>
 </button>
         </li>
 
