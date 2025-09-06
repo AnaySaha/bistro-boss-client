@@ -62,11 +62,13 @@ const Nav = () => {
 
   <div className="navbar-end">
 
-  <li to="/">
+  <li to="/dashboard">
+        <Link to="/dashboard/cart">
         <button className="btn">
         <FaShoppingCart className='mr-4' />
           <div className="badge badge-secondary">{cart.length}</div>
 </button>
+        </Link>
         </li>
 
         {
