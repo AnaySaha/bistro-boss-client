@@ -4,12 +4,14 @@ import { useForm } from "react-hook-form";
 import { data, Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../firebase/providers/AuthProviders";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 
 
 
 
 const SignUp = () => {
+  const axiosPublic = useAxiosPublic();
   const { handleSubmit, reset, register, formState: { errors } } = useForm();
 
   const { createUser, updateUserProfile } = useContext(AuthContext);
@@ -17,24 +19,36 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const onSubmit = data => {
-    console.log(data);
+ 
     createUser(data.email, data.password)
       .then(result => {
         const loggeduser = result.user;
         console.log(loggeduser);
         updateUserProfile(data.name, data.PhotoURL)
         .then(() =>{
-          console.log('user profile info updated')
-          reset();
+          //  create user entry in
+          const userInfo = {
+            
+            name: date.name,
+            email: data.email
+          }
+          axiosPublic.post('users', userInfo)
+          .then(res=>{
+            if(res.data.insertedId){
+              reset();
 
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Profile Create Successfully",
-            showConfirmButton: false,
-            timer: 1500
-          });
-          navigate('/');
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Profile Create Successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
+              navigate('/');
+            }
+          })
+          console.log('user profile info updated')
+         
         })
         .catch(error => console.log(error))
       })
