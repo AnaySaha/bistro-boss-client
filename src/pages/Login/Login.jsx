@@ -5,6 +5,7 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-s
 import { AuthContext } from '../../firebase/providers/AuthProviders';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2'
+import SocialLogin from '../../components/SocialLogin/SocialLogin';
 
 const Login = () => {
 
@@ -113,10 +114,11 @@ const Login = () => {
                                     className="btn btn-primary" />
                             </div>
                         </form>
-                        <p><small>New Here? <Link to="/signUp"> Crete an account
-                        </Link> </small></p>
+                        <p className='px-6'><small>New Here? <Link to="/signUp"> Crete an account
+                        </Link>  </small></p> <SocialLogin></SocialLogin>
                     </div>
                 </div>
+                
             </div>
         </>
     );

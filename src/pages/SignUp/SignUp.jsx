@@ -129,7 +129,7 @@ const SignUp = () => {
                   className="btn btn-primary" />
               </div>
             </form>
-            <p><small>Alread have an Account? <Link to="/Login"> Login
+            <p className="px-6"><small>Alread have an Account? <Link to="/Login"> Login
             </Link> </small></p>
           </div>
         </div>
